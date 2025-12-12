@@ -85,10 +85,10 @@ void Heap_insert_element(vector<int> &nums, int value)
     nums[nums.size() - 1] = value;
     int i = nums.size() - 1;
 
-    while (i > 0 && nums[(i-1) / 2] < nums[i])
+    while (i > 0 && nums[(i - 1) / 2] < nums[i])
     {
-        swap(nums[(i-2) / 2], nums[i]);
-        i = (i -1)/ 2;
+        swap(nums[(i - 2) / 2], nums[i]);
+        i = (i - 1) / 2;
     }
 }
 
@@ -105,29 +105,35 @@ void Heap_decerease_key(vector<int> &nums, int i, int key)
     Max_heapify(nums, i);
 }
 
+// incraese key fucntion
 
-//incraese key fucntion 
-
-void Heap_increase_key(vector<int>&nums , int i  , int key)
+void Heap_increase_key(vector<int> &nums, int i, int key)
 {
-    if(key > nums[i])
+    if (key > nums[i])
     {
-        cout<<"Wrong operation ";
-
+        cout << "Wrong operation ";
     }
 
-    nums[i]=key;
+    nums[i] = key;
 
-    while(i>0 && nums[i/2]<nums[i])
+    while (i > 0 && nums[i / 2] < nums[i])
     {
-        swap(nums[i],nums[i/2]);
-        i=i/2;
-
+        swap(nums[i], nums[i / 2]);
+        i = i / 2;
     }
 }
 
+// build heap functions
 
+void Build_heap(vector<int> &users_array)
+{
+    int hs = users_array.size();
 
+    for (int i = floor(hs / 2) - 1; i > 0; i--)
+    {
+        Max_heapify(users_array, i);
+    }
+}
 
 int main()
 {
