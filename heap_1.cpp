@@ -36,12 +36,12 @@ void Min_heapify(vector<int> &nums, int i)
     int R = 2 * i + 2;
     int smallest = i;
 
-    if (L < nums.size() && nums[L] > nums[smallest])
+    if (L < nums.size() && nums[L] < nums[smallest])
     {
         smallest = L;
     }
 
-    if (R < nums.size() && nums[R] > nums[smallest])
+    if (R < nums.size() && nums[R] < nums[smallest])
     {
         smallest = R;
     }
@@ -87,7 +87,7 @@ void Heap_insert_element(vector<int> &nums, int value)
 
     while (i > 0 && nums[(i - 1) / 2] < nums[i])
     {
-        swap(nums[(i - 2) / 2], nums[i]);
+        swap(nums[(i - 1) / 2], nums[i]);
         i = (i - 1) / 2;
     }
 }
@@ -116,10 +116,10 @@ void Heap_increase_key(vector<int> &nums, int i, int key)
 
     nums[i] = key;
 
-    while (i > 0 && nums[i / 2] < nums[i])
+    while (i > 0 && nums[(i-1)/2]<nums[i])
     {
-        swap(nums[i], nums[i / 2]);
-        i = i / 2;
+        swap(nums[i], nums[(i-1)/2]);
+        i = (i-1)/2;
     }
 }
 
@@ -129,7 +129,7 @@ void Build_heap(vector<int> &users_array)
 {
     int hs = users_array.size();
 
-    for (int i = floor(hs / 2) - 1; i > 0; i--)
+    for (int i = floor(hs / 2) - 1; i >=0; i--)
     {
         Max_heapify(users_array, i);
     }
