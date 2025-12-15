@@ -104,9 +104,12 @@ void print(vector<int> &stones)
 int main()
 {
 
-    vector<int> stones = {2, 7, 4, 1, 8, 1};
+    vector<int> stones = {1,2,1,2,1,2,3,1,3,2};
 
-    cout<<Last_stone_weight(stones);
+        Build_heap(stones);
+        print(stones);
+        
+    // cout<<Last_stone_weight(stones);
     // Build_heap(stones);
 
     // while (stones.size() > 0)
