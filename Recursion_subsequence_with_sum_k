@@ -1,0 +1,104 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+// int RemovedDublicates(vector<int>&nums)
+
+
+// {
+//     if(nums.empty()) return 0;
+
+//     int i = 0; // slow pointer to place next unique element
+//     for(int j = 1; j < nums.size(); j++)
+//     {
+//         if(nums[j] != nums[i]){
+//             i++;
+//             nums[i] = nums[j];
+//         }
+//     }
+//     return i + 1; // new length of unique prefix
+// }
+
+
+void print(vector<int>&arr)
+{
+    cout<<"[";
+    for(int i=0;i<arr.size();i++)
+    {
+        cout<<arr[i];
+
+    }
+
+    cout<<"]";
+    cout<<"  ";
+
+
+}
+
+// code for printing all subsequence where
+
+
+void  helperFunction(int index,vector<int>&main_array,vector<int>&Our_DS,int K,int sum)
+{
+    
+
+    if (index == main_array.size()) {
+        if (sum == K) {
+            print(Our_DS);
+        }
+        return; // ❗ Important: stop recursion when index reaches end
+    }
+
+
+    //take current element 
+    Our_DS.push_back(main_array[index]);
+    helperFunction(index + 1, main_array, Our_DS, K, sum + main_array[index]);
+
+
+    Our_DS.pop_back();
+   
+
+   
+
+
+    helperFunction(index+1,main_array,Our_DS,K,sum);
+
+
+        
+
+
+}
+
+void Subsequence_with_sum_K(vector<int>&main_array,int K )
+{
+    int index=0;
+    
+    int sum=0;
+    vector<int>Our_DS;
+    helperFunction(index,main_array,Our_DS,K,sum);
+
+
+   
+
+
+
+}
+
+
+int main()
+{
+
+    vector<int>nums={1,2,1};
+    int K=2;
+
+
+   Subsequence_with_sum_K(nums,K);
+
+
+
+   
+
+
+    return 0;
+
+}

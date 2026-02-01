@@ -5,6 +5,7 @@ using namespace std;
 
 bool search_in_array(vector<int>arr,int target)
 {
+<<<<<<< HEAD
    int low = 0, high = arr.size() - 1;
     while (low <= high) {
         int mid = low + (high - low) / 2;
@@ -12,6 +13,36 @@ bool search_in_array(vector<int>arr,int target)
         else if (arr[mid] < target) low = mid + 1;
         else high = mid - 1;
     }
+=======
+    int low=0;
+    int high=arr.size()-1;
+    
+
+
+    while(low<=high)
+    {
+        int mid=low+(high-low)/2;
+
+        if(arr[mid]==target)
+        {
+            
+            return true;
+
+
+        }
+        else if(arr[mid]<target)
+        {
+            low=mid+1;
+
+        }
+
+        else{
+            high=mid-1;
+
+        }
+    }
+
+>>>>>>> 7252a779b03117a7ed088b298fced6e7630c1858
     return false;
 
 
@@ -20,6 +51,7 @@ bool search_in_array(vector<int>arr,int target)
 
 bool search_in_matrix(vector<vector<int>>&matrix, int target)
 {
+<<<<<<< HEAD
     int m = matrix.size(), n = matrix[0].size();
     int low = 0, high = m * n - 1;
     while (low <= high) {
@@ -29,6 +61,26 @@ bool search_in_matrix(vector<vector<int>>&matrix, int target)
         else if (val < target) low = mid + 1;
         else high = mid - 1;
     }
+=======
+    int m=matrix.size();
+    int n=matrix[0].size();
+    
+
+
+    int low=0;
+
+    for(int i=0;i<m;i++)
+    {
+        if(search_in_array(matrix[i],target)==true)
+        {
+            return true;
+
+
+        }
+        
+    }
+
+>>>>>>> 7252a779b03117a7ed088b298fced6e7630c1858
     return false;
 
 }
@@ -49,4 +101,8 @@ int main()
 
     return 0;
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7252a779b03117a7ed088b298fced6e7630c1858
